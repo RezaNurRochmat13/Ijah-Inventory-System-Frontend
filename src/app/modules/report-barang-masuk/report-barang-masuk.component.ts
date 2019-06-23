@@ -1,5 +1,6 @@
 import { BarangMasukService } from './../../services/barang-masuk/barang-masuk.service';
 import { Component, OnInit } from '@angular/core';
+import { ExportToCsv } from 'export-to-csv';
 
 @Component({
   selector: 'app-report-barang-masuk',
@@ -28,6 +29,25 @@ export class ReportBarangMasukComponent implements OnInit {
     this.reportBarangMasukService.getDetailReportBarangMasukService(idBarangMasuk).subscribe(response => {
       this.detailReportBarangMasuk = response.data;
     });
+  }
+
+  public generateCSVReportBarangMasuk() {
+    console.log('Data', this.allReportBarangMasuk);
+
+    const options = {
+      fieldSeparator: ',',
+      quoteStrings: '"',
+      decimalSeparator: '.',
+      showLabels: true,
+      showTitle: true,
+      title: 'Untitle.csv',
+      useTextFile: false,
+      useBom: true,
+      headers: ['ID barang masuk', 'Nama barang', 'Nama ukuran', 'Nama warna', 'Tanggal masuk barang']
+    };
+
+    const csvExporter = new ExportToCsv(options);
+    csvExporter.generateCsv(this.allReportBarangMasuk);
   }
 
 
