@@ -32,8 +32,6 @@ export class ReportBarangMasukComponent implements OnInit {
   }
 
   public generateCSVReportBarangMasuk() {
-    console.log('Data', this.allReportBarangMasuk);
-
     const options = {
       fieldSeparator: ',',
       quoteStrings: '"',
