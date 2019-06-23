@@ -1,3 +1,4 @@
+import { BarangKeluarService } from './../../services/barang-keluar/barang-keluar.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./report-barang-keluar.component.css']
 })
 export class ReportBarangKeluarComponent implements OnInit {
+  allReportBarangKeluar: Array<any>;
 
-  constructor() { }
+  constructor(private reportBarangKeluarService: BarangKeluarService) { }
 
   ngOnInit() {
+    this.retrieveAllReportBarangKeluar();
+  }
+
+  public retrieveAllReportBarangKeluar() {
+    this.reportBarangKeluarService.getAllReportBarangKeluar().subscribe(response => {
+      this.allReportBarangKeluar = response.data;
+    });
   }
 
 }

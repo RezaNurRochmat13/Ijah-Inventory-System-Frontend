@@ -1,0 +1,1 @@
+export const ROOT_ENDPOINT = 'http://localhost:8080/public/api/v1/';
