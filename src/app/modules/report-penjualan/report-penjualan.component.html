@@ -3,32 +3,36 @@
   <div class="card">
     <div class="card-header">List Report Penjualan Barang</div>
     <div class="card-body">
+      <button type="button" class="btn btn-primary button-margin" (click)="generateCSVReportPenjualan()">Cetak Laporan</button>
       <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">No</th>
+            <th scope="col">Kode pesan</th>
+            <th scope="col">Nama barang</th>
+            <th scope="col">Nama ukuran</th>
+            <th scope="col">Nama warna</th>
+            <th scope="col">Tanggal jual</th>
+            <th scope="col">Jumlah order</th>
+            <th scope="col">Harga jual</th>
+            <th scope="col">Harga beli</th>
+            <th scope="col"> Total penjualan</th>
+            <th scope="col">Laba</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
+          <tr *ngFor="let reportPenjualan of allReportPenjualan; let i = index;">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ reportPenjualan.KodePesan }}</td>
+            <td>{{ reportPenjualan.NamaBarang }}</td>
+            <td>{{ reportPenjualan.NamaUkuran }}</td>
+            <td>{{ reportPenjualan.NamaWarna }}</td>
+            <td>{{ reportPenjualan.TanggalJual }}</td>
+            <td>{{ reportPenjualan.JumlahOrder }}</td>
+            <td>{{ reportPenjualan.HargaJual }}</td>
+            <td>{{ reportPenjualan.HargaBeli }}</td>
+            <td>{{ reportPenjualan.TotalPenjualan }}</td>
+            <td>{{ reportPenjualan.Laba }}</td>
           </tr>
         </tbody>
       </table>
