@@ -3,32 +3,26 @@
   <div class="card">
     <div class="card-header">List Report Stok Barang</div>
     <div class="card-body">
+      <button type="button" class="btn btn-primary button-margin" (click)="generateCSVReportStokBarang()">Cetak Laporan</button>
       <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">No</th>
+            <th scope="col">Kode barang</th>
+            <th scope="col">Nama barang</th>
+            <th scope="col">Nama ukuran</th>
+            <th scope="col">Nama warna</th>
+            <th scope="col">Jumlah stok sekarang</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
+          <tr *ngFor="let stokBarang of allReportStokBarang; let i = index;">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ stokBarang.KodeBarang }}</td>
+            <td>{{ stokBarang.NamaBarang }}</td>
+            <td>{{ stokBarang.NamaUkuran }}</td>
+            <td>{{ stokBarang.NamaWarna }}</td>
+            <td>{{ stokBarang.JumlahStokSekarang }}</td>
           </tr>
         </tbody>
       </table>
